@@ -1,0 +1,17 @@
+# Depandans
+node_modules/
+
+# Varyab anviwònman (kle sekrè yo)
+.env
+
+# Jounal ak fichye tanporè
+*.log
+npm-debug.log*
+
+# Fichye sistèm operasyon
+.DS_Store
+Thumbs.db
+
+# Editè
+.vscode/
+.idea/
