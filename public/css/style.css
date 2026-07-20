@@ -1,0 +1,265 @@
+/* =====================================================================
+   Feuille de style principale
+   Site web de gestion d'une entreprise informatique
+   ===================================================================== */
+
+/* Varyab koulè yo — sa fasilite mòd sonm nan tou */
+:root {
+  --couleur-primaire: #1e3a5f;
+  --couleur-secondaire: #2c7be5;
+  --couleur-accent: #00b8a9;
+  --couleur-fond: #f5f7fa;
+  --couleur-surface: #ffffff;
+  --couleur-texte: #1a2530;
+  --couleur-texte-doux: #5a6a7a;
+  --couleur-bordure: #e2e8f0;
+  --ombre: 0 4px 20px rgba(30, 58, 95, 0.08);
+  --rayon: 12px;
+}
+
+/* Mòd sonm — aktive lè atribi data-theme="dark" sou <html> */
+[data-theme='dark'] {
+  --couleur-primaire: #4a90d9;
+  --couleur-secondaire: #5b9bd5;
+  --couleur-fond: #0f1620;
+  --couleur-surface: #1a2530;
+  --couleur-texte: #e2e8f0;
+  --couleur-texte-doux: #9aa8b8;
+  --couleur-bordure: #2a3949;
+  --ombre: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  margin: 0;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--couleur-secondaire);
+  text-decoration: none;
+}
+
+/* -------------------- Bar navigasyon -------------------- */
+.navbar-custom {
+  background-color: var(--couleur-surface);
+  box-shadow: var(--ombre);
+  padding: 0.8rem 0;
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: 700;
+  color: var(--couleur-primaire);
+  font-size: 1.4rem;
+}
+
+.navbar-custom .nav-link {
+  color: var(--couleur-texte);
+  font-weight: 500;
+  margin: 0 0.3rem;
+  transition: color 0.2s;
+}
+
+.navbar-custom .nav-link:hover,
+.navbar-custom .nav-link.active {
+  color: var(--couleur-secondaire);
+}
+
+/* -------------------- Bouton -------------------- */
+.btn-primaire {
+  background-color: var(--couleur-secondaire);
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--rayon);
+  font-weight: 600;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.btn-primaire:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(44, 123, 229, 0.35);
+}
+
+.btn-accent {
+  background-color: var(--couleur-accent);
+  border: none;
+  color: #fff;
+  padding: 0.6rem 1.5rem;
+  border-radius: var(--rayon);
+  font-weight: 600;
+}
+
+.btn-accent:hover {
+  color: #fff;
+  opacity: 0.92;
+}
+
+/* -------------------- Bàn (hero) -------------------- */
+.hero {
+  background: linear-gradient(135deg, var(--couleur-primaire), var(--couleur-secondaire));
+  color: #fff;
+  padding: 6rem 0;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  opacity: 0.95;
+  max-width: 700px;
+  margin: 0 auto 2rem;
+}
+
+/* -------------------- Kat (cards) -------------------- */
+.carte {
+  background-color: var(--couleur-surface);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  box-shadow: var(--ombre);
+  padding: 2rem;
+  height: 100%;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.carte:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(30, 58, 95, 0.15);
+}
+
+.carte-icone {
+  font-size: 2.5rem;
+  color: var(--couleur-secondaire);
+  margin-bottom: 1rem;
+}
+
+/* -------------------- Seksyon -------------------- */
+.section {
+  padding: 5rem 0;
+}
+
+.section-titre {
+  font-weight: 700;
+  color: var(--couleur-primaire);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.section-sous-titre {
+  color: var(--couleur-texte-doux);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* -------------------- Kat pri (pricing) -------------------- */
+.carte-prix {
+  background-color: var(--couleur-surface);
+  border: 2px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 2rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+  height: 100%;
+}
+
+.carte-prix:hover {
+  border-color: var(--couleur-secondaire);
+  transform: translateY(-5px);
+}
+
+.carte-prix .prix {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--couleur-primaire);
+}
+
+.carte-prix .prix span {
+  font-size: 1rem;
+  color: var(--couleur-texte-doux);
+}
+
+/* -------------------- Fòm -------------------- */
+.form-control,
+.form-select {
+  background-color: var(--couleur-surface);
+  border: 1px solid var(--couleur-bordure);
+  color: var(--couleur-texte);
+  border-radius: 8px;
+  padding: 0.7rem 1rem;
+}
+
+.form-control:focus,
+.form-select:focus {
+  background-color: var(--couleur-surface);
+  color: var(--couleur-texte);
+  border-color: var(--couleur-secondaire);
+  box-shadow: 0 0 0 0.2rem rgba(44, 123, 229, 0.15);
+}
+
+/* -------------------- Pye paj (footer) -------------------- */
+.footer {
+  background-color: var(--couleur-primaire);
+  color: #cdd8e4;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer a {
+  color: #cdd8e4;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+/* -------------------- Temwayaj -------------------- */
+.etoiles {
+  color: #f6ad55;
+}
+
+/* -------------------- Bouton mòd sonm -------------------- */
+.btn-theme {
+  background: none;
+  border: 1px solid var(--couleur-bordure);
+  color: var(--couleur-texte);
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+}
+
+/* -------------------- Tab admin -------------------- */
+.table-custom {
+  background-color: var(--couleur-surface);
+  border-radius: var(--rayon);
+  overflow: hidden;
+}
+
+.stat-carte {
+  background: linear-gradient(135deg, var(--couleur-secondaire), var(--couleur-accent));
+  color: #fff;
+  border-radius: var(--rayon);
+  padding: 1.5rem;
+}
+
+.stat-carte .chif {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+}
