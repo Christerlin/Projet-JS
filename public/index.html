@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechnoServ - Solutions informatiques</title>
+    <!-- Bootstrap 5 ak Bootstrap Icons soti sou CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Bar navigasyon -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><i class="bi bi-cpu-fill me-2"></i>TechnoServ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link active" href="/">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about.html">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pricing.html">Tarifs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pay.html">Payer</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <button id="btn-theme" class="btn-theme"></button>
+            <span id="zone-auth"></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Bàn prensipal -->
+    <header class="hero">
+      <div class="container">
+        <h1>Votre partenaire en solutions informatiques</h1>
+        <p>
+          Développement de logiciels, gestion de bases de données, sécurité informatique et consultation
+          technique. Nous propulsons votre entreprise vers l'avenir numérique.
+        </p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+          <a href="/pricing.html" class="btn btn-accent btn-lg"><i class="bi bi-tags me-2"></i>Voir nos tarifs</a>
+          <a href="/contact.html" class="btn btn-light btn-lg"><i class="bi bi-envelope me-2"></i>Nous contacter</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Sèvis prensipal yo -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-titre">Nos services</h2>
+        <p class="section-sous-titre">Des solutions complètes adaptées à vos besoins</p>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-code-slash"></i></div>
+              <h5>Développement logiciel</h5>
+              <p class="text-muted">Programmation d'applications sur mesure pour votre entreprise.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-database-fill"></i></div>
+              <h5>Bases de données</h5>
+              <p class="text-muted">Conception et gestion de bases de données performantes.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-shield-lock-fill"></i></div>
+              <h5>Sécurité informatique</h5>
+              <p class="text-muted">Audit et protection de vos systèmes contre les menaces.</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-headset"></i></div>
+              <h5>Consultation technique</h5>
+              <p class="text-muted">Conseil et assistance pour vos projets informatiques.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Temwayaj kliyan yo (chaje depi API a) -->
+    <section class="section" style="background-color: rgba(0, 0, 0, 0.02)">
+      <div class="container">
+        <h2 class="section-titre">Témoignages de nos clients</h2>
+        <p class="section-sous-titre">Ce que nos clients disent de nous</p>
+        <div class="row g-4" id="zone-temoignages">
+          <p class="text-center text-muted">Chargement des témoignages...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Apèl a laksyon -->
+    <section class="section text-center">
+      <div class="container">
+        <h2 class="section-titre">Prêt à démarrer votre projet ?</h2>
+        <p class="section-sous-titre">Contactez-nous dès aujourd'hui pour un devis gratuit</p>
+        <a href="/contact.html" class="btn btn-primaire btn-lg"><i class="bi bi-chat-dots me-2"></i>Discutons de votre projet</a>
+      </div>
+    </section>
+
+    <!-- Pye paj -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5><i class="bi bi-cpu-fill me-2"></i>TechnoServ</h5>
+            <p>Votre partenaire de confiance en solutions informatiques depuis 2015.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h6>Navigation</h6>
+            <ul class="list-unstyled">
+              <li><a href="/about.html">À propos</a></li>
+              <li><a href="/pricing.html">Tarifs</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h6>Contact</h6>
+            <p><i class="bi bi-geo-alt me-2"></i>Limonade, Haïti</p>
+            <p><i class="bi bi-envelope me-2"></i>info@technoserv.ht</p>
+          </div>
+        </div>
+        <hr style="border-color: rgba(255, 255, 255, 0.2)" />
+        <p class="text-center mb-0">&copy; 2026 TechnoServ. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/commun.js"></script>
+    <script src="/js/accueil.js"></script>
+  </body>
+</html>
