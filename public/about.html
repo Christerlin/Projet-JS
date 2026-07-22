@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>À propos - TechnoServ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="/css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="/"><i class="bi bi-cpu-fill me-2"></i>TechnoServ</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/about.html">À propos</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pricing.html">Tarifs</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/pay.html">Payer</a></li>
+          </ul>
+          <div class="d-flex align-items-center gap-2">
+            <button id="btn-theme" class="btn-theme"></button>
+            <span id="zone-auth"></span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" style="padding: 4rem 0">
+      <div class="container">
+        <h1>À propos de TechnoServ</h1>
+        <p>Une équipe passionnée au service de votre transformation numérique.</p>
+      </div>
+    </header>
+
+    <!-- Istwa -->
+    <section class="section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <h2 class="section-titre text-start">Notre histoire</h2>
+            <p>
+              Fondée en 2015 à Limonade, TechnoServ est née de la volonté d'offrir aux entreprises haïtiennes
+              des solutions informatiques modernes et fiables. Depuis, nous avons accompagné plus de 150 clients
+              dans leur transformation numérique.
+            </p>
+            <p>
+              Notre expertise couvre le développement logiciel, la gestion de bases de données, la sécurité
+              informatique et la consultation technique.
+            </p>
+          </div>
+          <div class="col-lg-6 text-center">
+            <i class="bi bi-buildings" style="font-size: 10rem; color: var(--couleur-secondaire)"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Misyon, Vizyon, Valè -->
+    <section class="section" style="background-color: rgba(0, 0, 0, 0.02)">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-bullseye"></i></div>
+              <h4>Notre mission</h4>
+              <p class="text-muted">
+                Fournir des solutions informatiques innovantes qui aident nos clients à atteindre leurs
+                objectifs et à croître durablement.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-eye"></i></div>
+              <h4>Notre vision</h4>
+              <p class="text-muted">
+                Devenir le leader des services informatiques en Haïti et dans la Caraïbe, reconnu pour notre
+                excellence et notre fiabilité.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="carte text-center">
+              <div class="carte-icone"><i class="bi bi-heart"></i></div>
+              <h4>Nos valeurs</h4>
+              <p class="text-muted">
+                Intégrité, innovation, engagement envers la qualité et satisfaction totale de nos clients.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Ekip -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-titre">Notre équipe</h2>
+        <p class="section-sous-titre">Les membres du projet et leurs rôles</p>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="carte text-center">
+              <i class="bi bi-person-circle" style="font-size: 4rem; color: var(--couleur-secondaire)"></i>
+              <h5 class="mt-3">Naldika Francois</h5>
+              <p class="text-muted">Développement back-end et base de données</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="carte text-center">
+              <i class="bi bi-person-circle" style="font-size: 4rem; color: var(--couleur-secondaire)"></i>
+              <h5 class="mt-3">Estherlie Mompremier</h5>
+              <p class="text-muted">Développement front-end et design</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="carte text-center">
+              <i class="bi bi-person-circle" style="font-size: 4rem; color: var(--couleur-secondaire)"></i>
+              <h5 class="mt-3">Christerlin Joseph</h5>
+              <p class="text-muted">Paiement, administration et documentation</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Konpetans teknik -->
+    <section class="section" style="background-color: rgba(0, 0, 0, 0.02)">
+      <div class="container">
+        <h2 class="section-titre">Nos compétences techniques</h2>
+        <p class="section-sous-titre">Les technologies que nous maîtrisons</p>
+        <div class="row g-3 justify-content-center">
+          <div class="col-6 col-md-3">
+            <div class="carte text-center"><i class="bi bi-filetype-js carte-icone"></i><p class="mb-0">JavaScript</p></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="carte text-center"><i class="bi bi-database carte-icone"></i><p class="mb-0">PostgreSQL</p></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="carte text-center"><i class="bi bi-shield-check carte-icone"></i><p class="mb-0">Cybersécurité</p></div>
+          </div>
+          <div class="col-6 col-md-3">
+            <div class="carte text-center"><i class="bi bi-cloud carte-icone"></i><p class="mb-0">Cloud</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <h5><i class="bi bi-cpu-fill me-2"></i>TechnoServ</h5>
+            <p>Votre partenaire de confiance en solutions informatiques depuis 2015.</p>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h6>Navigation</h6>
+            <ul class="list-unstyled">
+              <li><a href="/about.html">À propos</a></li>
+              <li><a href="/pricing.html">Tarifs</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4 mb-3">
+            <h6>Contact</h6>
+            <p><i class="bi bi-geo-alt me-2"></i>Limonade, Haïti</p>
+            <p><i class="bi bi-envelope me-2"></i>info@technoserv.ht</p>
+          </div>
+        </div>
+        <hr style="border-color: rgba(255, 255, 255, 0.2)" />
+        <p class="text-center mb-0">&copy; 2026 TechnoServ. Tous droits réservés.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/commun.js"></script>
+  </body>
+</html>
