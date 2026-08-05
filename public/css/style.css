@@ -3,7 +3,22 @@
    Site web de gestion d'une entreprise informatique
    ===================================================================== */
 
-/* Varyab koulè yo — sa fasilite mòd sonm nan tou */
+:root{
+    --primary: #021F51;
+    --primary-dark: #000F3A;
+
+    --secondary: #1053A4;
+    --accent: #066DDD;
+
+    --white: #FFFFFF;
+    --light: #F8F9FA;
+
+    --gray-light: #B3C7DE;
+    --gray: #AEB9CA;
+
+    --text: #021F51;
+}
+
 :root {
   --couleur-primaire: #1e3a5f;
   --couleur-secondaire: #2c7be5;
@@ -17,17 +32,6 @@
   --rayon: 12px;
 }
 
-/* Mòd sonm — aktive lè atribi data-theme="dark" sou <html> */
-[data-theme='dark'] {
-  --couleur-primaire: #4a90d9;
-  --couleur-secondaire: #5b9bd5;
-  --couleur-fond: #0f1620;
-  --couleur-surface: #1a2530;
-  --couleur-texte: #e2e8f0;
-  --couleur-texte-doux: #9aa8b8;
-  --couleur-bordure: #2a3949;
-  --ombre: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
 
 * {
   box-sizing: border-box;
@@ -35,44 +39,128 @@
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var(--couleur-fond);
+  background-color: var();
   color: var(--couleur-texte);
   margin: 0;
-  line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
 }
+ 
 
-a {
-  color: var(--couleur-secondaire);
-  text-decoration: none;
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* -------------------- Bar navigasyon -------------------- */
-.navbar-custom {
-  background-color: var(--couleur-surface);
-  box-shadow: var(--ombre);
-  padding: 0.8rem 0;
+.bouton {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
 }
 
-.navbar-custom .navbar-brand {
-  font-weight: 700;
-  color: var(--couleur-primaire);
-  font-size: 1.4rem;
+.bouton-hamburger{
+    display:none;
 }
 
-.navbar-custom .nav-link {
-  color: var(--couleur-texte);
-  font-weight: 500;
-  margin: 0 0.3rem;
-  transition: color 0.2s;
+
+header {
+    background: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.navbar-custom .nav-link:hover,
-.navbar-custom .nav-link.active {
-  color: var(--couleur-secondaire);
+.header-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-/* -------------------- Bouton -------------------- */
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-link{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo img{
+    height: auto;
+    width: 90px;
+}
+ul {
+    list-style: none;
+}
+
+img {
+    
+}
+.logo-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text h1{
+    margin: 0;
+    font-size: 2rem;
+    line-height: 1,8;
+    color: var(--primary-dark);
+}
+
+.logo-text p{
+    margin: 0;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    color: #333;
+}
+
+.logo-link:hover{
+    color: inherit;
+}
+
+.logo h1 span {
+    color: var(--accent);
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li a {
+    font-weight: 500;
+    transition: color 0.3s;
+    white-space: nowrap;
+}
+
+.nav-link:hover{
+color: var(--accent);
+}
+.nav-link:hover::after{
+    width: 70%;
+}
+
+.nav-link.active{
+    color: var(--accent);
+}
+
+.nav-link.active::after{
+    width: 70%;
+}
+
+
 .btn-primaire {
   background-color: var(--couleur-secondaire);
   border: none;
@@ -103,9 +191,8 @@ a {
   opacity: 0.92;
 }
 
-/* -------------------- Bàn (hero) -------------------- */
 .hero {
-  background: linear-gradient(135deg, var(--couleur-primaire), var(--couleur-secondaire));
+  background: var(--primary);
   color: #fff;
   padding: 6rem 0;
   text-align: center;
@@ -123,75 +210,292 @@ a {
   max-width: 700px;
   margin: 0 auto 2rem;
 }
+/* ==========================
+   SECTION SERVICES
+========================== */
 
-/* -------------------- Kat (cards) -------------------- */
-.carte {
-  background-color: var(--couleur-surface);
-  border: 1px solid var(--couleur-bordure);
-  border-radius: var(--rayon);
-  box-shadow: var(--ombre);
-  padding: 2rem;
-  height: 100%;
-  transition: transform 0.2s, box-shadow 0.2s;
+.section {
+    padding: 50px 0;
+    background: #ffffff;
 }
+
+
+.section-titre {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0b2a5b;
+    margin-bottom: 8px;
+}
+
+
+.section-sous-titre {
+    text-align: center;
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+
+
+/* ==========================
+   CARTES SERVICES
+========================== */
+.carte {
+    background: #ffffff;
+    border: 1px solid #e6edf7;
+    border-radius: 12px;
+    padding: 25px 18px;
+    height: 100%;
+    text-align: center;
+    box-shadow: 0 5px 18px rgba(0, 40, 100, 0.08);
+    transition: all 0.3s ease;
+}
+
 
 .carte:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(30, 58, 95, 0.15);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 80, 180, 0.15);
+    border-color: #0d6efd;
 }
+
+
+
+/* ==========================
+   ICONES
+========================== */
 
 .carte-icone {
-  font-size: 2.5rem;
-  color: var(--couleur-secondaire);
-  margin-bottom: 1rem;
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eaf3ff;
+    border-radius: 50%;
+
+    color: #0066ff;
+    font-size: 28px;
 }
 
-/* -------------------- Seksyon -------------------- */
+
+
+/* ==========================
+   TITRES DES SERVICES
+========================== */
+
+.carte h5 {
+    color: #0b2a5b;
+    font-size: 15px;
+    font-weight: 700;
+    min-height: 40px;
+    margin-bottom: 12px;
+}
+
+
+.carte p {
+    color: #6c757d;
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* ==========================
+   SECTION TEMOIGNAGES
+========================== */
+
 .section {
-  padding: 5rem 0;
+    padding: 50px 0;
+    background: #ffffff;
+}
+
+
+.section-titre {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #0b2a5b;
+    margin-bottom: 8px;
+}
+
+
+.section-sous-titre {
+    text-align: center;
+    color: #6c757d;
+    font-size: 14px;
+    margin-bottom: 35px;
+}
+
+
+/* ==========================
+   SECTION TEMOIGNAGES
+========================== */
+.section {
+    padding: 60px 0;
+    background: #ffffff;
 }
 
 .section-titre {
-  font-weight: 700;
-  color: var(--couleur-primaire);
-  margin-bottom: 0.5rem;
-  text-align: center;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0b2a5b;
+    margin-bottom: 8px;
 }
 
 .section-sous-titre {
-  color: var(--couleur-texte-doux);
-  text-align: center;
-  margin-bottom: 3rem;
+    text-align: center;
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 40px;
 }
 
-/* -------------------- Kat pri (pricing) -------------------- */
-.carte-prix {
-  background-color: var(--couleur-surface);
-  border: 2px solid var(--couleur-bordure);
-  border-radius: var(--rayon);
-  padding: 2rem;
-  text-align: center;
-  transition: border-color 0.2s, transform 0.2s;
-  height: 100%;
+/* ==========================
+   CARTES TEMOIGNAGES
+========================== */
+.carte-temoignage {
+    background: #ffffff;
+    border: 1px solid #e6edf7;
+    border-radius: 12px;
+    padding: 30px 24px 28px;
+    height: 100%;
+    box-shadow: 0 5px 18px rgba(0, 40, 100, 0.08);
+    transition: all 0.3s ease;
 }
 
-.carte-prix:hover {
-  border-color: var(--couleur-secondaire);
-  transform: translateY(-5px);
+.carte-temoignage:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 80, 180, 0.15);
+    border-color: #0d6efd;
 }
 
-.carte-prix .prix {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--couleur-primaire);
+/* ==========================
+   AVATAR CLIENT
+========================== */
+.avatar-client {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf3ff;
+    border-radius: 50%;
+    color: #0066ff;
+    font-size: 22px;
+    font-weight: 700;
 }
 
-.carte-prix .prix span {
-  font-size: 1rem;
-  color: var(--couleur-texte-doux);
+/* ==========================
+   ETOILES AVEC BOOTSTRAP ICONS
+========================== */
+.etoiles {
+    color: #fbbf24;
+    font-size: 20px;
+    letter-spacing: 4px;
+    margin-bottom: 14px;
 }
 
-/* -------------------- Fòm -------------------- */
+.etoiles .bi-star {
+    color: #d1d5db; /* etwal vid gri */
+}
+
+/* ==========================
+   TEXTE TEMOIGNAGE
+========================== */
+.texte-temoignage {
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.7;
+    font-style: italic;
+    margin-bottom: 20px;
+    min-height: 70px;
+}
+
+/* ==========================
+   NOM CLIENT
+========================== */
+.carte-temoignage h5 {
+    color: #0b2a5b;
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.carte-temoignage .poste {
+    color: #6c757d;
+    font-size: 13px;
+    display: block;
+}
+
+/* ==========================
+   SECTION CTA
+========================== */
+.section {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+.cta-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-titre {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0b2a5b;
+    margin-bottom: 12px;
+}
+
+.section-sous-titre {
+    text-align: center;
+    color: #6c757d;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* ==========================
+   BOUTON CTA
+========================== */
+.btn-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d6efd;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.30);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-cta:hover {
+    background: #0b5ed7;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(13, 110, 253, 0.40);
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.btn-cta i {
+    font-size: 18px;
+}
+
+.btn-cta .me-2 {
+    margin-right: 10px;
+}
+
+
 .form-control,
 .form-select {
   background-color: var(--couleur-surface);
@@ -209,9 +513,8 @@ a {
   box-shadow: 0 0 0 0.2rem rgba(44, 123, 229, 0.15);
 }
 
-/* -------------------- Pye paj (footer) -------------------- */
 .footer {
-  background-color: var(--couleur-primaire);
+  background-color: var(--primary);
   color: #cdd8e4;
   padding: 3rem 0 1.5rem;
 }
@@ -224,7 +527,7 @@ a {
   color: #fff;
 }
 
-/* -------------------- Temwayaj -------------------- */
+
 .etoiles {
   color: #f6ad55;
 }
