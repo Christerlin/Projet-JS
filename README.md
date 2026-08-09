@@ -1,4 +1,4 @@
-# TechnoServ - Site web de gestion d'une entreprise informatique
+# NovaTech - Site web de gestion d'une entreprise informatique
 
 Application web moderne pour présenter les activités d'une entreprise informatique, gérer
 les clients, les services et les paiements en ligne.

@@ -3,40 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>À propos - TechnoServ</title>
+    <title>À propos - NovaTech</title>
+    <link rel="icon" href="/images/logo.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="/css/style.css" rel="stylesheet" />
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
-      <div class="container">
-        <a class="navbar-brand" href="/"><i class="bi bi-cpu-fill me-2"></i>TechnoServ</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="menu">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item"><a class="nav-link" href="/">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link active" href="/about.html">À propos</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pricing.html">Tarifs</a></li>
-            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="/pay.html">Payer</a></li>
-          </ul>
-          <div class="d-flex align-items-center gap-2">
-            <button id="btn-theme" class="btn-theme"></button>
-            <span id="zone-auth"></span>
-          </div>
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="/" class="logo-link">
+            <img src="/images/logo.png" alt="Logo NovaTech" />
+            <div class="logo-text">
+              <span class="logo-nom">Nova<span>Tech</span></span>
+              <p>Solutions informatiques</p>
+            </div>
+          </a>
         </div>
-      </div>
-    </nav>
 
-    <header class="hero" style="padding: 4rem 0">
-      <div class="container">
-        <h1>À propos de TechnoServ</h1>
-        <p>Une équipe passionnée au service de votre transformation numérique.</p>
+        <nav id="menu-principal">
+          <ul>
+            <li><a class="nav-link" href="/">Accueil</a></li>
+            <li><a class="nav-link active" href="/about.html">À propos</a></li>
+            <li><a class="nav-link" href="/pricing.html">Tarifs</a></li>
+            <li><a class="nav-link" href="/contact.html">Contact</a></li>
+            <li><a class="nav-link" href="/pay.html">Payer</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button id="btn-theme" class="btn-theme" aria-label="Changer de thème"></button>
+          <span id="zone-auth"></span>
+        </div>
+
+        <button class="bouton-hamburger" id="boutonHamburger" aria-label="Menu"
+                aria-expanded="false" aria-controls="menu-principal">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </header>
+
+    <section class="hero" style="padding: 4rem 0">
+      <div class="container">
+        <h1>À propos de NovaTech</h1>
+        <p>Une équipe passionnée au service de votre transformation numérique.</p>
+      </div>
+    </section>
 
     <!-- Istwa -->
     <section class="section">
@@ -45,7 +60,7 @@
           <div class="col-lg-6">
             <h2 class="section-titre text-start">Notre histoire</h2>
             <p>
-              Fondée en 2015 à Limonade, TechnoServ est née de la volonté d'offrir aux entreprises haïtiennes
+              Fondée en 2015 à Limonade, NovaTech est née de la volonté d'offrir aux entreprises haïtiennes
               des solutions informatiques modernes et fiables. Depuis, nous avons accompagné plus de 150 clients
               dans leur transformation numérique.
             </p>
@@ -155,7 +170,8 @@
       <div class="container">
         <div class="row">
           <div class="col-md-4 mb-3">
-            <h5><i class="bi bi-cpu-fill me-2"></i>TechnoServ</h5>
+            <img src="/images/logo.png" alt="Logo NovaTech" class="footer-logo" />
+            <h5>NovaTech</h5>
             <p>Votre partenaire de confiance en solutions informatiques depuis 2015.</p>
           </div>
           <div class="col-md-4 mb-3">
@@ -169,11 +185,11 @@
           <div class="col-md-4 mb-3">
             <h6>Contact</h6>
             <p><i class="bi bi-geo-alt me-2"></i>Limonade, Haïti</p>
-            <p><i class="bi bi-envelope me-2"></i>info@technoserv.ht</p>
+            <p><i class="bi bi-envelope me-2"></i>info@novatech.ht</p>
           </div>
         </div>
         <hr style="border-color: rgba(255, 255, 255, 0.2)" />
-        <p class="text-center mb-0">&copy; 2026 TechnoServ. Tous droits réservés.</p>
+        <p class="text-center mb-0">&copy; 2026 NovaTech. Tous droits réservés.</p>
       </div>
     </footer>
 

@@ -7,13 +7,13 @@
 
   <title>NovaTech - Solutions informatiques</title>
 
+  <link rel="icon" href="/images/logo.png" />
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-  
-  <link rel="stylesheet" href="css/style.css">
+  <link href="/css/style.css" rel="stylesheet" />
 </head>
 
 
@@ -23,39 +23,36 @@
   <header>
     <div class="header-container">
       <div class="logo">
-        <a href="index.html" class="logo-link">
-          <img src="images/logo.png" alt="logoNovaTech">
+        <a href="/" class="logo-link">
+          <img src="/images/logo.png" alt="Logo NovaTech" />
           <div class="logo-text">
-            <h1>Nova<span>Tech</span></h1>
+            <span class="logo-nom">Nova<span>Tech</span></span>
             <p>Solutions informatiques</p>
-          </div> 
-        </a> 
+          </div>
+        </a>
       </div>
-      <button class="bouton-hamburger" id="boutonHamburger" aria-label="Menu">
+
+      <nav id="menu-principal">
+        <ul>
+          <li><a class="nav-link active" href="/">Accueil</a></li>
+          <li><a class="nav-link" href="/about.html">À propos</a></li>
+          <li><a class="nav-link" href="/pricing.html">Tarifs</a></li>
+          <li><a class="nav-link" href="/contact.html">Contact</a></li>
+          <li><a class="nav-link" href="/pay.html">Payer</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="btn-theme" class="btn-theme" aria-label="Changer de thème"></button>
+        <span id="zone-auth"></span>
+      </div>
+
+      <button class="bouton-hamburger" id="boutonHamburger" aria-label="Menu"
+              aria-expanded="false" aria-controls="menu-principal">
         <span></span>
         <span></span>
         <span></span>
       </button>
-
-      <nav>
-        <ul>
-          <li>
-            <a class="nav-link active" href="index.html">Accueil</a>
-          </li>
-          <li>
-            <a class="nav-link" href="about.html">À propos</a>
-          </li>
-          <li>
-            <a class="nav-link" href="pricing.html">Tarifs</a>
-          </li>
-          <li>
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li>
-          <li>
-            <a class="nav-link" href="pay.html">Payer</a>
-          </li>
-        </ul>
-      </nav>
     </div>
   </header>
 
@@ -126,67 +123,10 @@
         <h2 class="section-titre">Témoignages de nos clients</h2>
         <p class="section-sous-titre">Ce que nos clients disent de nous</p>
         
-        <div class="row g-4">
-            <!-- CARTE 1 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="carte-temoignage text-center">
-                    <div class="avatar-client">JP</div>
-                    <div class="etoiles">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                    </div>
-                    <p class="texte-temoignage">
-                        “NovaTech a transformé notre infrastructure informatique.<br>
-                        Leur expertise et leur professionnalisme sont remarquables.”
-                    </p>
-                    <h5>Jean Pierre</h5>
-                    <span class="poste">PDG, Entreprise Plus</span>
-                </div>
-            </div>
-
-            <!-- CARTE 2 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="carte-temoignage text-center">
-                    <div class="avatar-client">MC</div>
-                    <div class="etoiles">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                    </div>
-                    <p class="texte-temoignage">
-                        “Une équipe réactive et compétente. Notre application métier<br>
-                        fonctionne parfaitement grâce à NovaTech.”
-                    </p>
-                    <h5>Marie Claire</h5>
-                    <span class="poste">Directrice, Solutions HAITI</span>
-                </div>
-            </div>
-
-            <!-- CARTE 3 -->
-            <div class="col-md-6 col-lg-4">
-                <div class="carte-temoignage text-center">
-                    <div class="avatar-client">DE</div>
-                    <div class="etoiles">
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star-fill"></i>
-                        <i class="bi bi-star"></i>
-                    </div>
-                    <p class="texte-temoignage">
-                        “La sécurité de nos données est désormais assurée.<br>
-                        Merci pour votre accompagnement de qualité !”
-                    </p>
-                    <h5>David Exantus</h5>
-                    <span class="poste">Responsable IT, Compagnie X</span>
-                </div>
-            </div>
+        <div class="row g-4" id="zone-temoignages">
+            <p class="text-center text-muted">Chargement des témoignages...</p>
         </div>
+    </div>
   </section>
 
   <section class="section">
@@ -205,7 +145,8 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4 mb-3">
-          <h5><i class="bi bi-cpu-fill me-2"></i>NovaTech</h5>
+          <img src="/images/logo.png" alt="Logo NovaTech" class="footer-logo" />
+          <h5>NovaTech</h5>
           <p>Votre partenaire de confiance en solutions informatiques depuis 2015.</p>
         </div>
         <div class="col-md-4 mb-3">
@@ -219,11 +160,11 @@
         <div class="col-md-4 mb-3">
           <h6>Contact</h6>
           <p><i class="bi bi-geo-alt me-2"></i>Limonade, Haïti</p>
-          <p><i class="bi bi-envelope me-2"></i>info@novatech.ht</p></div>
+          <p><i class="bi bi-envelope me-2"></i>info@novatech.ht</p>
         </div>
-        <hr style="border-color: rgba(255,255,255,0.2)" />
-        <p class="text-center mb-0">&copy; 2026 NovaTech. Tous droits réservés.</p>
       </div>
+      <hr style="border-color: rgba(255, 255, 255, 0.2)" />
+      <p class="text-center mb-0">&copy; 2026 NovaTech. Tous droits réservés.</p>
     </div>
   </footer>
   
