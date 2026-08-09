@@ -98,6 +98,28 @@ function mettreAJourIconeTheme(theme) {
   }
 }
 
+// -------------------- Meni mobil --------------------
+function initialiserMenuMobile() {
+  const bouton = document.getElementById('boutonHamburger');
+  const menu = document.getElementById('menu-principal');
+  if (!bouton || !menu) return;
+
+  bouton.addEventListener('click', () => {
+    const ouvri = menu.classList.toggle('ouvri');
+    bouton.classList.toggle('ouvri', ouvri);
+    bouton.setAttribute('aria-expanded', String(ouvri));
+  });
+
+  // Lè yon lyen klike, nou fèmen meni an pou l pa rete ouvè
+  menu.querySelectorAll('a').forEach((lien) => {
+    lien.addEventListener('click', () => {
+      menu.classList.remove('ouvri');
+      bouton.classList.remove('ouvri');
+      bouton.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
+
 // Fòmate yon montan an dola
 function formaterPrix(montant) {
   return Number(montant).toLocaleString('fr-FR', { minimumFractionDigits: 2 }) + ' $';
@@ -107,4 +129,5 @@ function formaterPrix(montant) {
 document.addEventListener('DOMContentLoaded', () => {
   initialiserTheme();
   mettreAJourNavbar();
+  initialiserMenuMobile();
 });
