@@ -56,7 +56,7 @@ async function mettreAJourNavbar() {
     zone.innerHTML = `
       <div class="dropdown">
         <button class="btn btn-primaire dropdown-toggle" data-bs-toggle="dropdown">
-          <i class="bi bi-person-circle me-1"></i>${utilisateur.prenom}
+          <i class="bi bi-person-circle me-1"></i><span id="nom-utilisateur"></span>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
           ${lienAdmin}
@@ -64,6 +64,10 @@ async function mettreAJourNavbar() {
           <li><a class="dropdown-item" href="#" id="lien-deconnexion"><i class="bi bi-box-arrow-right me-2"></i>Déconnexion</a></li>
         </ul>
       </div>`;
+    // Prenon an soti nan sa itilizatè a tape, donk li pase pa textContent.
+    // Si nou te mete l dirèkteman nan innerHTML, yon prenon ki gen balize
+    // HTML ladan l t ap egzekite nan navigatè a.
+    document.getElementById('nom-utilisateur').textContent = utilisateur.prenom;
     document.getElementById('lien-deconnexion').addEventListener('click', async (e) => {
       e.preventDefault();
       await fetch('/api/auth/deconnexion', { method: 'POST' });
