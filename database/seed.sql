@@ -12,7 +12,8 @@
 INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, telephone, adresse, role) VALUES
 ('Admin', 'Système', 'admin@entreprise.ht', '$2a$10$9iS7SrnzFSKkLDyoswJBh.KG6xadAVFmkOZorzvOFwgRlys/W7n1a', '+509 3000 0000', 'Limonade, Haïti', 'admin'),
 ('Pierre', 'Jean', 'jean@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3111 1111', 'Cap-Haïtien, Haïti', 'client'),
-('Louis', 'Marie', 'marie@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3222 2222', 'Port-au-Prince, Haïti', 'client');
+('Louis', 'Marie', 'marie@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3222 2222', 'Port-au-Prince, Haïti', 'client'),
+('Exantus', 'David', 'david@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3333 3333', 'Limonade, Haïti', 'client');
 
 -- Lyen administratè a
 INSERT INTO administrateur (id_utilisateur, fonction) VALUES
@@ -21,7 +22,8 @@ INSERT INTO administrateur (id_utilisateur, fonction) VALUES
 -- Lyen kliyan yo
 INSERT INTO client (id_utilisateur, entreprise, ville, pays) VALUES
 (2, 'TechPlus SA', 'Cap-Haïtien', 'Haïti'),
-(3, 'InfoService', 'Port-au-Prince', 'Haïti');
+(3, 'InfoService', 'Port-au-Prince', 'Haïti'),
+(4, 'Compagnie X', 'Limonade', 'Haïti');
 
 -- ---------------------------------------------------------------------
 -- Sèvis yo (baze sou tablo egzanp nan konsiy la)
@@ -51,7 +53,8 @@ INSERT INTO paiement (id_commande, montant, mode_paiement, transaction_id, statu
 -- ---------------------------------------------------------------------
 INSERT INTO temoignage (id_client, commentaire, note) VALUES
 (1, 'Un service exceptionnel et une équipe très professionnelle.', 5),
-(2, 'Notre site web a transformé notre présence en ligne. Merci !', 5);
+(2, 'Notre site web a transformé notre présence en ligne. Merci !', 5),
+(3, 'La sécurité de nos données est désormais assurée. Merci pour votre accompagnement de qualité !', 5);
 
 -- ---------------------------------------------------------------------
 -- Mesaj kontak egzanp
