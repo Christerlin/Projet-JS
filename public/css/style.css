@@ -1,165 +1,266 @@
 /* =====================================================================
    Feuille de style principale
-   Site web de gestion d'une entreprise informatique
+   NovaTech — Site web de gestion d'une entreprise informatique
    ===================================================================== */
 
-:root{
-    --primary: #021F51;
-    --primary-dark: #000F3A;
-
-    --secondary: #1053A4;
-    --accent: #066DDD;
-
-    --white: #FFFFFF;
-    --light: #F8F9FA;
-
-    --gray-light: #B3C7DE;
-    --gray: #AEB9CA;
-
-    --text: #021F51;
-}
-
+/* ---------------------------------------------------------------------
+   1. VARYAB KOULÈ YO
+   Tout koulè yo pase isit la. Konsa mòd sonm nan sèlman gen pou l
+   remplase valè varyab yo, li pa bezwen reekri okenn règ.
+   --------------------------------------------------------------------- */
 :root {
-  --couleur-primaire: #1e3a5f;
-  --couleur-secondaire: #2c7be5;
-  --couleur-accent: #00b8a9;
+  /* Idantite NovaTech */
+  --couleur-primaire: #021f51;
+  --couleur-banniere: #000f3a; /* fon hero a ak pye paj la */
+  --couleur-secondaire: #1053a4;
+  --couleur-accent: #066ddd;
+
+  /* Sifas ak fon */
   --couleur-fond: #f5f7fa;
   --couleur-surface: #ffffff;
+  --couleur-surface-douce: #eaf3ff;
+
+  /* Tèks */
+  --couleur-titre: #0b2a5b;
   --couleur-texte: #1a2530;
-  --couleur-texte-doux: #5a6a7a;
-  --couleur-bordure: #e2e8f0;
-  --ombre: 0 4px 20px rgba(30, 58, 95, 0.08);
+  --couleur-texte-doux: #6c757d;
+
+  /* Detay */
+  --couleur-bordure: #e6edf7;
+  --couleur-bordure-douce: #d1d5db;
+  --couleur-etoile: #fbbf24;
+
+  --ombre: 0 5px 18px rgba(0, 40, 100, 0.08);
+  --ombre-forte: 0 12px 30px rgba(0, 80, 180, 0.15);
   --rayon: 12px;
 }
 
+/* Mòd sonm — aktive lè atribi data-theme="dark" sou <html> */
+[data-theme='dark'] {
+  --couleur-primaire: #4a90d9;
+  --couleur-banniere: #0a1420;
+  --couleur-secondaire: #5b9bd5;
+  --couleur-accent: #66b3ff;
 
+  --couleur-fond: #0f1620;
+  --couleur-surface: #1a2530;
+  --couleur-surface-douce: #22303f;
+
+  --couleur-titre: #e2e8f0;
+  --couleur-texte: #e2e8f0;
+  --couleur-texte-doux: #9aa8b8;
+
+  --couleur-bordure: #2a3949;
+  --couleur-bordure-douce: #3a4a5c;
+
+  --ombre: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --ombre-forte: 0 12px 30px rgba(0, 0, 0, 0.55);
+}
+
+/* ---------------------------------------------------------------------
+   2. BAZ
+   --------------------------------------------------------------------- */
 * {
   box-sizing: border-box;
 }
 
 body {
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: var();
+  background-color: var(--couleur-fond);
   color: var(--couleur-texte);
   margin: 0;
+  line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
 }
- 
 
-.header-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.bouton {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.bouton-hamburger{
-    display:none;
-}
-
-
-header {
-    background: var(--white);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.logo{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.logo-link{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
-    color: inherit;
-}
-
-.logo img{
-    height: auto;
-    width: 90px;
-}
-ul {
-    list-style: none;
+a {
+  color: var(--couleur-secondaire);
+  text-decoration: none;
 }
 
 img {
-    
-}
-.logo-text{
-    display: flex;
-    flex-direction: column;
+  max-width: 100%;
 }
 
-.logo-text h1{
-    margin: 0;
-    font-size: 2rem;
-    line-height: 1,8;
-    color: var(--primary-dark);
+/* ---------------------------------------------------------------------
+   3. ANTÈT AK NAVIGASYON
+   --------------------------------------------------------------------- */
+header {
+  background: var(--couleur-surface);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s;
 }
 
-.logo-text p{
-    margin: 0;
-    font-size: 0.8rem;
-    line-height: 1.2;
-    color: #333;
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.logo-link:hover{
-    color: inherit;
+/* -------------------- Logo -------------------- */
+.logo,
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
-.logo h1 span {
-    color: var(--accent);
+.logo-link {
+  text-decoration: none;
+  color: inherit;
 }
 
+.logo-link:hover {
+  color: inherit;
+}
+
+.logo img {
+  height: auto;
+  width: 90px;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Non mak la se yon span, pa yon h1 : chak paj kenbe pwòp h1 pa l */
+.logo-nom {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--couleur-primaire);
+}
+
+.logo-nom span {
+  color: var(--couleur-accent);
+}
+
+.logo-text p {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  color: var(--couleur-texte-doux);
+}
+
+/* -------------------- Meni an -------------------- */
 nav ul {
-    display: flex;
-    gap: 30px;
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 nav ul li a {
-    font-weight: 500;
-    transition: color 0.3s;
-    white-space: nowrap;
+  position: relative;
+  font-weight: 500;
+  color: var(--couleur-texte);
+  transition: color 0.3s;
+  white-space: nowrap;
 }
 
-.nav-link:hover{
-color: var(--accent);
-}
-.nav-link:hover::after{
-    width: 70%;
+/* Ti bawo ki parèt anba lyen an lè li aktif oswa lè sourit la pase sou li */
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--couleur-accent);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.3s;
 }
 
-.nav-link.active{
-    color: var(--accent);
+.nav-link:hover,
+.nav-link.active {
+  color: var(--couleur-accent);
 }
 
-.nav-link.active::after{
-    width: 70%;
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 70%;
 }
 
+/* -------------------- Zòn aksyon (tèm + koneksyon) -------------------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-theme {
+  background: none;
+  border: 1px solid var(--couleur-bordure);
+  color: var(--couleur-texte);
+  border-radius: 8px;
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.btn-theme:hover {
+  border-color: var(--couleur-accent);
+  color: var(--couleur-accent);
+}
+
+/* -------------------- Bouton anbègè (ti ekran) -------------------- */
+.bouton-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.bouton-hamburger span {
+  display: block;
+  width: 26px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--couleur-primaire);
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+/* Twa ba yo tounen yon X lè meni an ouvè */
+.bouton-hamburger.ouvri span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bouton-hamburger.ouvri span:nth-child(2) {
+  opacity: 0;
+}
+
+.bouton-hamburger.ouvri span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---------------------------------------------------------------------
+   4. BOUTON YO
+   --------------------------------------------------------------------- */
+.bouton {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
 
 .btn-primaire {
   background-color: var(--couleur-secondaire);
@@ -191,8 +292,44 @@ color: var(--accent);
   opacity: 0.92;
 }
 
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--couleur-accent);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 40px;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 20px rgba(13, 110, 253, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-cta:hover {
+  background: var(--couleur-secondaire);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(13, 110, 253, 0.4);
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn-cta i {
+  font-size: 18px;
+}
+
+.btn-cta .me-2 {
+  margin-right: 10px;
+}
+
+/* ---------------------------------------------------------------------
+   5. HERO
+   --------------------------------------------------------------------- */
 .hero {
-  background: var(--primary);
+  background: var(--couleur-banniere);
   color: #fff;
   padding: 6rem 0;
   text-align: center;
@@ -210,292 +347,217 @@ color: var(--accent);
   max-width: 700px;
   margin: 0 auto 2rem;
 }
-/* ==========================
-   SECTION SERVICES
-========================== */
 
+/* ---------------------------------------------------------------------
+   6. SEKSYON YO
+   --------------------------------------------------------------------- */
 .section {
-    padding: 50px 0;
-    background: #ffffff;
-}
-
-
-.section-titre {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #0b2a5b;
-    margin-bottom: 8px;
-}
-
-
-.section-sous-titre {
-    text-align: center;
-    color: #6c757d;
-    font-size: 14px;
-    margin-bottom: 35px;
-}
-
-
-
-/* ==========================
-   CARTES SERVICES
-========================== */
-.carte {
-    background: #ffffff;
-    border: 1px solid #e6edf7;
-    border-radius: 12px;
-    padding: 25px 18px;
-    height: 100%;
-    text-align: center;
-    box-shadow: 0 5px 18px rgba(0, 40, 100, 0.08);
-    transition: all 0.3s ease;
-}
-
-
-.carte:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 80, 180, 0.15);
-    border-color: #0d6efd;
-}
-
-
-
-/* ==========================
-   ICONES
-========================== */
-
-.carte-icone {
-    width: 55px;
-    height: 55px;
-    margin: 0 auto 18px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #eaf3ff;
-    border-radius: 50%;
-
-    color: #0066ff;
-    font-size: 28px;
-}
-
-
-
-/* ==========================
-   TITRES DES SERVICES
-========================== */
-
-.carte h5 {
-    color: #0b2a5b;
-    font-size: 15px;
-    font-weight: 700;
-    min-height: 40px;
-    margin-bottom: 12px;
-}
-
-
-.carte p {
-    color: #6c757d;
-    font-size: 13px;
-    line-height: 1.5;
-    margin: 0;
-}
-
-/* ==========================
-   SECTION TEMOIGNAGES
-========================== */
-
-.section {
-    padding: 50px 0;
-    background: #ffffff;
-}
-
-
-.section-titre {
-    text-align: center;
-    font-size: 28px;
-    font-weight: 700;
-    color: #0b2a5b;
-    margin-bottom: 8px;
-}
-
-
-.section-sous-titre {
-    text-align: center;
-    color: #6c757d;
-    font-size: 14px;
-    margin-bottom: 35px;
-}
-
-
-/* ==========================
-   SECTION TEMOIGNAGES
-========================== */
-.section {
-    padding: 60px 0;
-    background: #ffffff;
+  padding: 60px 0;
+  background: var(--couleur-surface);
+  transition: background-color 0.3s;
 }
 
 .section-titre {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    color: #0b2a5b;
-    margin-bottom: 8px;
+  text-align: center;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  color: var(--couleur-titre);
+  margin-bottom: 12px;
 }
 
 .section-sous-titre {
-    text-align: center;
-    color: #6c757d;
-    font-size: 16px;
-    margin-bottom: 40px;
-}
-
-/* ==========================
-   CARTES TEMOIGNAGES
-========================== */
-.carte-temoignage {
-    background: #ffffff;
-    border: 1px solid #e6edf7;
-    border-radius: 12px;
-    padding: 30px 24px 28px;
-    height: 100%;
-    box-shadow: 0 5px 18px rgba(0, 40, 100, 0.08);
-    transition: all 0.3s ease;
-}
-
-.carte-temoignage:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 80, 180, 0.15);
-    border-color: #0d6efd;
-}
-
-/* ==========================
-   AVATAR CLIENT
-========================== */
-.avatar-client {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #eaf3ff;
-    border-radius: 50%;
-    color: #0066ff;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-/* ==========================
-   ETOILES AVEC BOOTSTRAP ICONS
-========================== */
-.etoiles {
-    color: #fbbf24;
-    font-size: 20px;
-    letter-spacing: 4px;
-    margin-bottom: 14px;
-}
-
-.etoiles .bi-star {
-    color: #d1d5db; /* etwal vid gri */
-}
-
-/* ==========================
-   TEXTE TEMOIGNAGE
-========================== */
-.texte-temoignage {
-    color: #4a5568;
-    font-size: 15px;
-    line-height: 1.7;
-    font-style: italic;
-    margin-bottom: 20px;
-    min-height: 70px;
-}
-
-/* ==========================
-   NOM CLIENT
-========================== */
-.carte-temoignage h5 {
-    color: #0b2a5b;
-    font-size: 17px;
-    font-weight: 700;
-    margin-bottom: 4px;
-}
-
-.carte-temoignage .poste {
-    color: #6c757d;
-    font-size: 13px;
-    display: block;
-}
-
-/* ==========================
-   SECTION CTA
-========================== */
-.section {
-    padding: 60px 0;
-    background: #ffffff;
+  text-align: center;
+  color: var(--couleur-texte-doux);
+  font-size: 16px;
+  margin-bottom: 35px;
 }
 
 .cta-wrapper {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
-.section-titre {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    color: #0b2a5b;
-    margin-bottom: 12px;
+/* ---------------------------------------------------------------------
+   7. KAT SÈVIS YO
+   --------------------------------------------------------------------- */
+.carte {
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 25px 18px;
+  height: 100%;
+  text-align: center;
+  box-shadow: var(--ombre);
+  transition: all 0.3s ease;
 }
 
-.section-sous-titre {
-    text-align: center;
-    color: #6c757d;
-    font-size: 16px;
-    margin-bottom: 30px;
+.carte:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--ombre-forte);
+  border-color: var(--couleur-accent);
 }
 
-/* ==========================
-   BOUTON CTA
-========================== */
-.btn-cta {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background: #0d6efd;
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 16px;
-    padding: 14px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(13, 110, 253, 0.30);
-    border: none;
-    cursor: pointer;
+.carte-icone {
+  width: 55px;
+  height: 55px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--couleur-surface-douce);
+  border-radius: 50%;
+  color: var(--couleur-accent);
+  font-size: 28px;
 }
 
-.btn-cta:hover {
-    background: #0b5ed7;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 28px rgba(13, 110, 253, 0.40);
-    color: #ffffff;
-    text-decoration: none;
+/* -------------------- Lis kowòdone (paj kontak) --------------------
+   Isit la ikòn nan chita akote tèks la, li pa santre nan yon kat. Se sa
+   k fè li bezwen pwòp klas pa l : `margin: 0 auto` .carte-icone la t ap
+   pouse chak ikòn adwat epi chak liy t ap ateri yon kote diferan. */
+.contact-ligne {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
-.btn-cta i {
-    font-size: 18px;
+.contact-icone {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--couleur-surface-douce);
+  border-radius: 50%;
+  color: var(--couleur-accent);
+  font-size: 22px;
 }
 
-.btn-cta .me-2 {
-    margin-right: 10px;
+.contact-ligne h6 {
+  margin: 0;
+  color: var(--couleur-titre);
+  font-weight: 700;
 }
 
+.contact-ligne p {
+  margin: 0;
+  color: var(--couleur-texte-doux);
+}
 
+.carte h5 {
+  color: var(--couleur-titre);
+  font-size: 15px;
+  font-weight: 700;
+  min-height: 40px;
+  margin-bottom: 12px;
+}
+
+.carte p {
+  color: var(--couleur-texte-doux);
+  font-size: 13px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ---------------------------------------------------------------------
+   8. KAT TEMWAYAJ YO
+   --------------------------------------------------------------------- */
+.carte-temoignage {
+  background: var(--couleur-surface);
+  border: 1px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 30px 24px 28px;
+  height: 100%;
+  box-shadow: var(--ombre);
+  transition: all 0.3s ease;
+}
+
+.carte-temoignage:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--ombre-forte);
+  border-color: var(--couleur-accent);
+}
+
+.avatar-client {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--couleur-surface-douce);
+  border-radius: 50%;
+  color: var(--couleur-accent);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.etoiles {
+  color: var(--couleur-etoile);
+  font-size: 20px;
+  letter-spacing: 4px;
+  margin-bottom: 14px;
+}
+
+.etoiles .bi-star {
+  color: var(--couleur-bordure-douce); /* etwal vid gri */
+}
+
+.texte-temoignage {
+  color: var(--couleur-texte-doux);
+  font-size: 15px;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+  min-height: 70px;
+}
+
+.carte-temoignage h5 {
+  color: var(--couleur-titre);
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.carte-temoignage .poste {
+  color: var(--couleur-texte-doux);
+  font-size: 13px;
+  display: block;
+}
+
+/* ---------------------------------------------------------------------
+   9. KAT TARIF YO (tarifs.js jenere yo)
+   --------------------------------------------------------------------- */
+.carte-prix {
+  background-color: var(--couleur-surface);
+  border: 2px solid var(--couleur-bordure);
+  border-radius: var(--rayon);
+  padding: 2rem;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+  height: 100%;
+}
+
+.carte-prix:hover {
+  border-color: var(--couleur-secondaire);
+  transform: translateY(-5px);
+}
+
+.carte-prix .prix {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--couleur-primaire);
+}
+
+.carte-prix .prix span {
+  font-size: 1rem;
+  color: var(--couleur-texte-doux);
+}
+
+/* ---------------------------------------------------------------------
+   10. FÒM YO
+   --------------------------------------------------------------------- */
 .form-control,
 .form-select {
   background-color: var(--couleur-surface);
@@ -513,36 +575,9 @@ color: var(--accent);
   box-shadow: 0 0 0 0.2rem rgba(44, 123, 229, 0.15);
 }
 
-.footer {
-  background-color: var(--primary);
-  color: #cdd8e4;
-  padding: 3rem 0 1.5rem;
-}
-
-.footer a {
-  color: #cdd8e4;
-}
-
-.footer a:hover {
-  color: #fff;
-}
-
-
-.etoiles {
-  color: #f6ad55;
-}
-
-/* -------------------- Bouton mòd sonm -------------------- */
-.btn-theme {
-  background: none;
-  border: 1px solid var(--couleur-bordure);
-  color: var(--couleur-texte);
-  border-radius: 8px;
-  padding: 0.4rem 0.7rem;
-  cursor: pointer;
-}
-
-/* -------------------- Tab admin -------------------- */
+/* ---------------------------------------------------------------------
+   11. PANEL ADMIN
+   --------------------------------------------------------------------- */
 .table-custom {
   background-color: var(--couleur-surface);
   border-radius: var(--rayon);
@@ -561,8 +596,214 @@ color: var(--accent);
   font-weight: 800;
 }
 
-@media (max-width: 768px) {
+/* ---------------------------------------------------------------------
+   12. PYE PAJ
+   --------------------------------------------------------------------- */
+.footer {
+  background-color: var(--couleur-banniere);
+  color: #cdd8e4;
+  padding: 3rem 0 1.5rem;
+}
+
+.footer a {
+  color: #cdd8e4;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer-logo {
+  width: 70px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.footer h5 {
+  color: #fff;
+}
+
+/* ---------------------------------------------------------------------
+   13. AJISTEMAN BOOTSTRAP POU MÒD SONM
+   Klas Bootstrap yo gen koulè fiks, fòk nou ranplase yo lè tèm nan sonm.
+   --------------------------------------------------------------------- */
+[data-theme='dark'] .text-muted {
+  color: var(--couleur-texte-doux) !important;
+}
+
+[data-theme='dark'] .bg-white {
+  background-color: var(--couleur-surface) !important;
+}
+
+[data-theme='dark'] .table {
+  --bs-table-bg: var(--couleur-surface);
+  --bs-table-color: var(--couleur-texte);
+  --bs-table-border-color: var(--couleur-bordure);
+  --bs-table-hover-bg: var(--couleur-surface-douce);
+  --bs-table-hover-color: var(--couleur-texte);
+}
+
+[data-theme='dark'] .modal-content {
+  background-color: var(--couleur-surface);
+  color: var(--couleur-texte);
+}
+
+[data-theme='dark'] .modal-header,
+[data-theme='dark'] .modal-footer {
+  border-color: var(--couleur-bordure);
+}
+
+[data-theme='dark'] .nav-tabs {
+  border-color: var(--couleur-bordure);
+}
+
+[data-theme='dark'] .nav-tabs .nav-link.active {
+  background-color: var(--couleur-surface);
+  border-color: var(--couleur-bordure) var(--couleur-bordure) var(--couleur-surface);
+  color: var(--couleur-accent);
+}
+
+[data-theme='dark'] .dropdown-menu {
+  background-color: var(--couleur-surface);
+  border-color: var(--couleur-bordure);
+}
+
+[data-theme='dark'] .dropdown-item {
+  color: var(--couleur-texte);
+}
+
+[data-theme='dark'] .dropdown-item:hover {
+  background-color: var(--couleur-surface-douce);
+  color: var(--couleur-accent);
+}
+
+/* Nan mòd sonm koulè bouton yo vin pi klere, donk tèks la dwe fonse
+   pou kontras la rete lizib. */
+[data-theme='dark'] .btn-primaire,
+[data-theme='dark'] .btn-primaire:hover,
+[data-theme='dark'] .btn-accent,
+[data-theme='dark'] .btn-accent:hover,
+[data-theme='dark'] .btn-cta,
+[data-theme='dark'] .btn-cta:hover {
+  color: #0f1620;
+}
+
+/* ---------------------------------------------------------------------
+   14. RESPONSIVE
+   --------------------------------------------------------------------- */
+
+/* Tablèt ak telefòn : meni an antre dèyè bouton anbègè a */
+@media (max-width: 900px) {
+  .bouton-hamburger {
+    display: flex;
+  }
+
+  header nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--couleur-surface);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  header nav.ouvri {
+    max-height: 400px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 0;
+    padding: 10px 20px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--couleur-bordure);
+  }
+
+  /* Nan meni vètikal la, se bòdi a ki separe lyen yo, pa ti bawo a */
+  nav ul li a::after {
+    display: none;
+  }
+
+  nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  .logo img {
+    width: 60px;
+  }
+
+  .logo-nom {
+    font-size: 1.4rem;
+  }
+
+  .logo-text p {
+    font-size: 0.7rem;
+  }
+}
+
+/* Telefòn */
+@media (max-width: 576px) {
+  .header-container {
+    gap: 8px;
+    padding: 0 12px;
+  }
+
+  .logo-text p {
+    display: none;
+  }
+
+  .logo img {
+    width: 46px;
+  }
+
+  .logo-nom {
+    font-size: 1.15rem;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  /* Bouton koneksyon an dwe rete sou yon sèl liy */
+  .header-actions .btn-primaire {
+    padding: 0.45rem 0.7rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .btn-theme {
+    padding: 0.35rem 0.5rem;
+  }
+
+  .bouton-hamburger {
+    padding: 6px 0;
+  }
+
+  .hero {
+    padding: 3.5rem 0;
+  }
+
   .hero h1 {
     font-size: 2.2rem;
+  }
+
+  .hero p {
+    font-size: 1.05rem;
+  }
+
+  .section {
+    padding: 40px 0;
+  }
+
+  .btn-cta {
+    padding: 12px 24px;
+    font-size: 15px;
   }
 }
