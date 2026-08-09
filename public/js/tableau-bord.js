@@ -55,6 +55,8 @@ async function chargerCommandes() {
     tr.appendChild(tdStatut);
 
     const tdAction = document.createElement('td');
+    tdAction.className = 'd-flex gap-2';
+
     if (c.statut === 'en_attente') {
       const lien = document.createElement('a');
       lien.className = 'btn btn-sm btn-accent';
@@ -62,6 +64,19 @@ async function chargerCommandes() {
       lien.textContent = 'Payer';
       tdAction.appendChild(lien);
     }
+
+    // Faktir PDF la (bonis). Sèvè a jenere l, navigatè a jis telechaje l.
+    if (c.statut !== 'annulee') {
+      const facture = document.createElement('a');
+      facture.className = 'btn btn-sm btn-outline-secondary';
+      facture.href = '/api/commandes/' + c.id_commande + '/facture';
+      const icone = document.createElement('i');
+      icone.className = 'bi bi-file-earmark-pdf me-1';
+      facture.appendChild(icone);
+      facture.appendChild(document.createTextNode('Facture'));
+      tdAction.appendChild(facture);
+    }
+
     tr.appendChild(tdAction);
     tbody.appendChild(tr);
   });

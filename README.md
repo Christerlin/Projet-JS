@@ -13,6 +13,7 @@ les clients, les services et les paiements en ligne.
 | Back-end       | Node.js, Express.js                |
 | Base de données | PostgreSQL                        |
 | Paiement       | Stripe                             |
+| Factures       | PDFKit                             |
 
 ## Fonctionnalités
 
@@ -23,8 +24,22 @@ les clients, les services et les paiements en ligne.
 - Paiement en ligne sécurisé avec Stripe.
 - Formulaire de contact enregistré dans la base de données.
 - Panneau d'administration : gestion des services, utilisateurs, paiements et messages.
-- Bonus : recherche de services, filtrage par catégorie, avis clients, mode sombre,
-  tableau de bord avec graphiques (Chart.js), site responsive.
+- Génération de factures PDF téléchargeables depuis l'espace client.
+
+### Bonus réalisés
+
+| Bonus | État |
+| ----- | ---- |
+| Tableau de bord administrateur avec statistiques | Fait |
+| Recherche de services | Fait |
+| Filtrage par catégorie | Fait |
+| Avis et évaluations des clients | Fait |
+| Génération de factures PDF | Fait |
+| Mode sombre | Fait |
+| Site entièrement responsive | Fait |
+| Tableau de bord avec graphiques (Chart.js) | Fait |
+| Envoi d'e-mails de confirmation | Non réalisé |
+| Notifications en temps réel | Non réalisé |
 
 ## Estrikti pwojè a
 
@@ -37,6 +52,7 @@ js/
 │   └── init.js             # Script inisyalizasyon otomatik
 ├── middleware/auth.js      # Pwoteksyon routes (session + wòl)
 ├── routes/                 # Routes API yo (auth, services, contact, commandes, paiement, admin, temoignages)
+├── utils/facture-pdf.js    # Konstwiksyon faktir PDF yo
 ├── public/                 # Front-end (HTML, CSS, JS)
 ├── docs/                   # Diksyonè done, modèl relasyonèl, ERD
 ├── server.js               # Pwen antre serveur la

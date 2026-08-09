@@ -2,6 +2,7 @@
 const express = require('express');
 const db = require('../config/db');
 const { estConnecte } = require('../middleware/auth');
+const { construireFacture, numeroFacture } = require('../utils/facture-pdf');
 
 const router = express.Router();
 
@@ -111,6 +112,59 @@ router.get('/:id', estConnecte, async (req, res, next) => {
       [req.params.id]
     );
     res.json({ commande: resCommande.rows[0], details: resDetails.rows });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// GET /api/commandes/:id/facture — faktir PDF la (bonis)
+// Menm règ ak rès la : yon kliyan ka telechaje SÈLMAN pwòp faktir pa l.
+// Tout chif yo soti nan baz done a, front-end lan pa voye anyen.
+router.get('/:id/facture', estConnecte, async (req, res, next) => {
+  try {
+    const idClient = await trouverIdClient(req.session.utilisateur.id);
+    const resCommande = await db.query(
+      'SELECT * FROM commande WHERE id_commande = $1 AND id_client = $2',
+      [req.params.id, idClient]
+    );
+    if (resCommande.rowCount === 0) {
+      return res.status(404).json({ message: 'Commande introuvable.' });
+    }
+    const commande = resCommande.rows[0];
+
+    const [resClient, resDetails, resPaiement] = await Promise.all([
+      db.query(
+        `SELECT u.nom, u.prenom, u.email AS courriel, u.telephone, u.adresse,
+                c.entreprise, c.ville, c.pays
+         FROM client c
+         JOIN utilisateur u ON u.id_utilisateur = c.id_utilisateur
+         WHERE c.id_client = $1`,
+        [idClient]
+      ),
+      db.query(
+        `SELECT d.quantite, d.prix, s.nom_service
+         FROM detail_commande d
+         JOIN service s ON s.id_service = d.id_service
+         WHERE d.id_commande = $1
+         ORDER BY d.id_detail`,
+        [commande.id_commande]
+      ),
+      db.query('SELECT * FROM paiement WHERE id_commande = $1', [commande.id_commande]),
+    ]);
+
+    const nomFichier = numeroFacture(commande.id_commande) + '.pdf';
+    res.setHeader('Content-Type', 'application/pdf');
+    res.setHeader('Content-Disposition', `attachment; filename="${nomFichier}"`);
+
+    construireFacture(
+      {
+        commande,
+        client: resClient.rows[0],
+        details: resDetails.rows,
+        paiement: resPaiement.rows[0] || null,
+      },
+      res
+    );
   } catch (err) {
     next(err);
   }
