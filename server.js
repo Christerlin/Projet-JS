@@ -9,6 +9,12 @@ const { pool } = require('./config/db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Sou yon tè deplwaman, HTTPS la fini sou yon proxy anvan li rive sou Express.
+// San liy sa a, Express kwè koneksyon an an clair, epi li refize voye cookie
+// sesyon an ki make "secure". Rezilta : koneksyon an sanble reyisi men
+// itilizatè a pa janm rete konekte.
+app.set('trust proxy', 1);
+
 // Middleware pou li kò rekèt yo an JSON ak an fòm URL ankode
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

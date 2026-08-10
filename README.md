@@ -99,6 +99,35 @@ npm start
 
 Sit la ap disponib sou `http://localhost:3000`.
 
+## Déploiement
+
+Le projet fonctionne sur tout hébergeur qui exécute un processus Node en continu
+(Render, Railway, Fly.io) avec une base PostgreSQL gérée (Neon, Supabase).
+
+Variables d'environnement à définir sur l'hébergeur :
+
+| Variable | Valeur |
+| -------- | ------ |
+| `DATABASE_URL` | Chaîne de connexion fournie par la base gérée |
+| `SESSION_SECRET` | Une chaîne aléatoire longue |
+| `STRIPE_SECRET_KEY` | Clé `sk_test_...` |
+| `STRIPE_PUBLISHABLE_KEY` | Clé `pk_test_...` |
+| `NODE_ENV` | `production` |
+
+Quand `DATABASE_URL` est présente, elle remplace les cinq variables `DB_*` et le
+SSL est activé automatiquement. Initialisez ensuite le schéma une seule fois :
+
+```bash
+DATABASE_URL="..." npm run db:init
+```
+
+Le serveur appelle `app.set('trust proxy', 1)` : sans cela, le cookie de session
+marqué `secure` ne serait jamais transmis derrière le proxy HTTPS de
+l'hébergeur, et la connexion échouerait silencieusement.
+
+Gardez les clés Stripe **de test** en production : la carte de démonstration
+continue de fonctionner et aucune transaction réelle n'est possible.
+
 ## Comptes de démonstration
 
 | Rôle          | Courriel              | Mot de passe |
