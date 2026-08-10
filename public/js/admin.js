@@ -28,6 +28,18 @@ function cellule(texte) {
 }
 
 // -------------------- Estatistik --------------------
+
+// Montan an pou ti kat estatistik la. Nou kite santim yo deyò, epi depi l
+// rive nan milyon nou abreje l, konsa kat la rete menm gwosè ak lòt yo
+// kèlkeswa kantite chif la. Montan egzak yo nan onglè Paiements lan.
+function formaterRevenusCourt(montant) {
+  const valeur = Number(montant) || 0;
+  if (valeur >= 1000000) {
+    return (valeur / 1000000).toLocaleString('fr-FR', { maximumFractionDigits: 1 }) + ' M$';
+  }
+  return valeur.toLocaleString('fr-FR', { maximumFractionDigits: 0 }) + ' $';
+}
+
 async function chargerStatistiques() {
   const { nb_clients, nb_services, nb_commandes, revenus_total, nb_messages } = await api.get(
     '/api/admin/statistiques'
@@ -38,14 +50,14 @@ async function chargerStatistiques() {
     { titre: 'Clients', valeur: nb_clients, icone: 'bi-people-fill' },
     { titre: 'Services', valeur: nb_services, icone: 'bi-box-seam' },
     { titre: 'Commandes', valeur: nb_commandes, icone: 'bi-cart-fill' },
-    { titre: 'Revenus', valeur: formaterPrix(revenus_total), icone: 'bi-cash-stack' },
+    { titre: 'Revenus', valeur: formaterRevenusCourt(revenus_total), icone: 'bi-cash-stack' },
     { titre: 'Messages', valeur: nb_messages, icone: 'bi-envelope-fill' },
   ];
 
   zone.innerHTML = '';
   cartes.forEach((c) => {
     const col = document.createElement('div');
-    col.className = 'col-6 col-md-4 col-lg';
+    col.className = 'col-6 col-md-4 col-lg stat-col';
     const carte = document.createElement('div');
     carte.className = 'stat-carte';
     carte.innerHTML =

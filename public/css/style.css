@@ -584,16 +584,33 @@ nav ul li a::after {
   overflow: hidden;
 }
 
+/* Kolòn ti kat estatistik yo. min-width: 0 obligatwa : san li, eleman flex
+   la pran lajè minimòm kontni l epi kat Revenus la gwosi chak fwa chif la
+   vin pi long, sa peze lòt kat yo. */
+.stat-col {
+  min-width: 0;
+}
+
 .stat-carte {
   background: linear-gradient(135deg, var(--couleur-secondaire), var(--couleur-accent));
   color: #fff;
   border-radius: var(--rayon);
   padding: 1.5rem;
+  height: 100%;
+  overflow: hidden;
 }
 
 .stat-carte .chif {
-  font-size: 2rem;
+  /* Tay la desann poukont li lè kat la sere, konsa chif la pa janm koupe */
+  font-size: clamp(1.15rem, 1.5vw, 1.75rem);
   font-weight: 800;
+  line-height: 1.3;
+  /* Chif yo tout gen menm lajè, konsa kat la pa tresayi lè valè a chanje */
+  font-variant-numeric: tabular-nums;
+  /* Montan an rete sou yon sèl liy, "$" la pa tonbe anba */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ---------------------------------------------------------------------
