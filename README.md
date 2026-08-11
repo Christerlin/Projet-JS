@@ -104,6 +104,11 @@ Sit la ap disponib sou `http://localhost:3000`.
 Le projet fonctionne sur tout hébergeur qui exécute un processus Node en continu
 (Render, Railway, Fly.io) avec une base PostgreSQL gérée (Neon, Supabase).
 
+Le fichier [`render.yaml`](render.yaml) décrit le service prêt à l'emploi pour
+Render : depuis le tableau de bord, choisissez **New > Blueprint**, sélectionnez
+ce dépôt, et Render lira ce fichier. Il demandera les trois secrets et générera
+lui-même `SESSION_SECRET`.
+
 Variables d'environnement à définir sur l'hébergeur :
 
 | Variable | Valeur |

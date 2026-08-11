@@ -1,0 +1,27 @@
+# Blueprint Render pou NovaTech.
+# Baz done a se Neon, li pa deklare isit la : nou bay chèn koneksyon an
+# nan DATABASE_URL lè n ap kreye sèvis la.
+services:
+  - type: web
+    name: novatech
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      # Render jenere yon sekrè owaza 256 bit poukont li
+      - key: SESSION_SECRET
+        generateValue: true
+
+      # sync: false vle di Render ap mande valè a nan tablo de bò a.
+      # Konsa okenn sekrè pa antre nan depo git la.
+      - key: DATABASE_URL
+        sync: false
+      - key: STRIPE_SECRET_KEY
+        sync: false
+      - key: STRIPE_PUBLISHABLE_KEY
+        sync: false
