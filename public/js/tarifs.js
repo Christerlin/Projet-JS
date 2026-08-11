@@ -125,6 +125,9 @@ function mettreAJourBaro() {
   document.getElementById('nb-selection').textContent = nb;
   document.getElementById('total-selection').textContent = formaterPrix(total);
   baro.style.display = nb > 0 ? 'block' : 'none';
+  // Nou rezève plas anba paj la SÈLMAN lè baro a parèt, sinon yon bann vid
+  // t ap rete anba pye paj la tout tan.
+  document.body.classList.toggle('avec-baro', nb > 0);
 }
 
 // Kreye kòmand la epi voye kliyan an sou paj peman an

@@ -71,6 +71,17 @@ body {
   margin: 0;
   line-height: 1.6;
   transition: background-color 0.3s, color 0.3s;
+  /* Paj la okipe omwen tout wotè ekran an */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sou paj ki gen tikras kontni (Connexion, Paiement), dènye seksyon an gonfle
+   pou l plen espas ki rete a. San sa, pye paj la ta monte nan mitan ekran an
+   epi yon bann vid ta parèt anba l. */
+body > .section:last-of-type {
+  flex-grow: 1;
 }
 
 a {
@@ -634,6 +645,13 @@ nav ul li a::after {
   width: 70px;
   height: auto;
   margin-bottom: 10px;
+}
+
+/* Paj Tarifs la gen yon baro rezime ki fikse anba ekran an. Lè li parèt,
+   nou grandi pye paj la pou baro a pa kouvri dènye liy yo. Nou sèvi ak
+   padding olye margin pou koulè pye paj la kontinye jiska anba. */
+body.avec-baro .footer {
+  padding-bottom: 90px;
 }
 
 .footer h5 {
