@@ -471,6 +471,17 @@ nav ul li a::after {
   margin: 0;
 }
 
+/* Foto manm ekip la sou paj À propos. object-fit: cover kenbe pwopòsyon
+   foto a menm si li pa egzakteman kare, li koupe sa ki depase olye l tòde l. */
+.photo-equipe {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--couleur-surface-douce);
+  box-shadow: var(--ombre);
+}
+
 /* ---------------------------------------------------------------------
    8. KAT TEMWAYAJ YO
    --------------------------------------------------------------------- */
