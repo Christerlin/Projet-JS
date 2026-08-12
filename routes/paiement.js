@@ -2,6 +2,7 @@
 const express = require('express');
 const db = require('../config/db');
 const { estConnecte } = require('../middleware/auth');
+const { diffuser } = require('./notifications');
 
 const router = express.Router();
 
@@ -97,6 +98,8 @@ router.post('/confirmer', estConnecte, async (req, res, next) => {
       [id_commande, montant, payment_intent_id]
     );
     await db.query(`UPDATE commande SET statut = 'payee' WHERE id_commande = $1`, [id_commande]);
+
+    diffuser('paiement', `Paiement reçu pour la commande #${id_commande} : ${montant.toFixed(2)} $`);
 
     res.json({ message: 'Paiement effectué avec succès. Merci pour votre confiance !' });
   } catch (err) {

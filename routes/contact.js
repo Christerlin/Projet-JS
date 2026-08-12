@@ -2,6 +2,7 @@
 const express = require('express');
 const db = require('../config/db');
 const { normaliserTelephone } = require('../utils/telephone');
+const { diffuser } = require('./notifications');
 
 const router = express.Router();
 
@@ -25,6 +26,8 @@ router.post('/', async (req, res, next) => {
        VALUES ($1, $2, $3, $4, $5, $6)`,
       [nom, prenom, email, tel.valeur, sujet, message]
     );
+
+    diffuser('contact', `Nouveau message de ${prenom} ${nom} : ${sujet}`);
 
     res.status(201).json({ message: 'Votre message a bien été envoyé. Nous vous répondrons bientôt.' });
   } catch (err) {

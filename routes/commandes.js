@@ -3,6 +3,7 @@ const express = require('express');
 const db = require('../config/db');
 const { estConnecte } = require('../middleware/auth');
 const { construireFacture, numeroFacture } = require('../utils/facture-pdf');
+const { diffuser } = require('./notifications');
 
 const router = express.Router();
 
@@ -62,6 +63,9 @@ router.post('/', estConnecte, async (req, res, next) => {
     await client.query('UPDATE commande SET montant_total = $1 WHERE id_commande = $2', [montantTotal, idCommande]);
 
     await client.query('COMMIT');
+
+    diffuser('commande', `Nouvelle commande #${idCommande} de ${montantTotal.toFixed(2)} $`);
+
     res.status(201).json({ message: 'Commande créée.', id_commande: idCommande, montant_total: montantTotal });
   } catch (err) {
     await client.query('ROLLBACK');

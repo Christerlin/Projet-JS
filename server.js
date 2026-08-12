@@ -46,6 +46,7 @@ app.use('/api/temoignages', require('./routes/temoignages'));
 app.use('/api/commandes', require('./routes/commandes'));
 app.use('/api/paiement', require('./routes/paiement'));
 app.use('/api/admin', require('./routes/admin'));
+app.use('/api/notifications', require('./routes/notifications').router);
 
 // Fichye estatik front-end yo (HTML, CSS, JS, imaj)
 app.use(express.static(path.join(__dirname, 'public')));

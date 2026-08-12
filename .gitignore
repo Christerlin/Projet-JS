@@ -18,3 +18,4 @@ Thumbs.db
 
 # Konfigirasyon zouti lokal
 .claude/
+.playwright-mcp/

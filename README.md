@@ -40,8 +40,8 @@ les clients, les services et les paiements en ligne.
 | Mode sombre | Fait |
 | Site entièrement responsive | Fait |
 | Tableau de bord avec graphiques (Chart.js) | Fait |
+| Notifications en temps réel | Fait |
 | Envoi d'e-mails de confirmation | Non réalisé |
-| Notifications en temps réel | Non réalisé |
 
 ## Estrikti pwojè a
 

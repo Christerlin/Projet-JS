@@ -18,6 +18,69 @@ async function initialiserAdmin() {
 
   document.getElementById('form-service').addEventListener('submit', enregistrerService);
   document.getElementById('btn-nouveau-service').addEventListener('click', reinitialiserFormService);
+
+  ecouterNotifications();
+}
+
+// -------------------- Notifikasyon an tan reyèl (bonis) --------------------
+const ICONES_NOTIFICATION = {
+  commande: 'bi-cart-check',
+  paiement: 'bi-cash-coin',
+  contact: 'bi-envelope',
+};
+
+function ecouterNotifications() {
+  // EventSource rekonekte poukont li si koneksyon an koupe, nou pa gen
+  // anyen pou jere pou sa.
+  const flux = new EventSource('/api/notifications/flux');
+
+  flux.addEventListener('message', (e) => {
+    const notification = JSON.parse(e.data);
+    afficherNotification(notification);
+    rafraichirApres(notification.type);
+  });
+}
+
+// Chak evènman touche yon pati diferan nan tablo de bò a
+function rafraichirApres(type) {
+  chargerStatistiques();
+  if (type === 'contact') chargerMessages();
+  if (type === 'paiement') chargerPaiements();
+}
+
+function afficherNotification({ type, message }) {
+  const zone = document.getElementById('zone-notifications');
+  if (!zone) return;
+
+  const toast = document.createElement('div');
+  toast.className = 'toast align-items-center border-0';
+  toast.setAttribute('role', 'alert');
+
+  const ligne = document.createElement('div');
+  ligne.className = 'd-flex';
+
+  const corps = document.createElement('div');
+  corps.className = 'toast-body d-flex align-items-center gap-2';
+
+  const icone = document.createElement('i');
+  icone.className = 'bi ' + (ICONES_NOTIFICATION[type] || 'bi-bell');
+  corps.appendChild(icone);
+  // Mesaj la gen non kliyan an ladan l, donk li pase pa textContent
+  corps.appendChild(document.createTextNode(message));
+
+  const fermer = document.createElement('button');
+  fermer.type = 'button';
+  fermer.className = 'btn-close me-2 m-auto';
+  fermer.setAttribute('data-bs-dismiss', 'toast');
+  fermer.setAttribute('aria-label', 'Fermer');
+
+  ligne.appendChild(corps);
+  ligne.appendChild(fermer);
+  toast.appendChild(ligne);
+  zone.appendChild(toast);
+
+  new bootstrap.Toast(toast, { delay: 8000 }).show();
+  toast.addEventListener('hidden.bs.toast', () => toast.remove());
 }
 
 // Ti fonksyon pou kreye yon selil tab ak tèks san danje
