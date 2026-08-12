@@ -9,7 +9,7 @@ const ENTREPRISE = {
   slogan: 'Solutions informatiques',
   adresse: 'Limonade, Nord, Haïti',
   courriel: 'info@novatech.ht',
-  telephone: '+509 3000 0000',
+  telephone: '+509 4178 7840',
 };
 
 const LOGO = path.join(__dirname, '..', 'public', 'images', 'logo.png');

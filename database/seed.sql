@@ -10,7 +10,7 @@
 -- Itilizatè yo
 -- ---------------------------------------------------------------------
 INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, telephone, adresse, role) VALUES
-('Admin', 'Système', 'admin@entreprise.ht', '$2a$10$9iS7SrnzFSKkLDyoswJBh.KG6xadAVFmkOZorzvOFwgRlys/W7n1a', '+509 3000 0000', 'Limonade, Haïti', 'admin'),
+('Admin', 'Système', 'admin@entreprise.ht', '$2a$10$9iS7SrnzFSKkLDyoswJBh.KG6xadAVFmkOZorzvOFwgRlys/W7n1a', '+509 4178 7840', 'Limonade, Haïti', 'admin'),
 ('Pierre', 'Jean', 'jean@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3111 1111', 'Cap-Haïtien, Haïti', 'client'),
 ('Louis', 'Marie', 'marie@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3222 2222', 'Port-au-Prince, Haïti', 'client'),
 ('Exantus', 'David', 'david@example.com', '$2a$10$R5vQQwLW4552DX1hAnYv1uXzG1.DpV2vJI9obczGvwYxPb1eFXO1m', '+509 3333 3333', 'Limonade, Haïti', 'client');
