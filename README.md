@@ -20,6 +20,7 @@ les clients, les services et les paiements en ligne.
 - 6 pages obligatoires : Accueil, À propos, Tarifs, Contact, Connexion, Paiement.
 - Deux rôles : Administrateur et Client.
 - Inscription, connexion, déconnexion et gestion de profil.
+- Mots de passe hachés avec bcrypt, minimum 8 caractères vérifié côté serveur.
 - Sélection de plusieurs services et création de commandes.
 - Paiement en ligne sécurisé avec Stripe.
 - Formulaire de contact enregistré dans la base de données.

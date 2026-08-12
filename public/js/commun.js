@@ -138,6 +138,21 @@ function initialiserChampsTelephone() {
   });
 }
 
+// -------------------- Bouton pou montre modpas la --------------------
+function initialiserBoutonsOeil() {
+  document.querySelectorAll('.btn-oeil').forEach((bouton) => {
+    const champ = bouton.parentElement.querySelector('input');
+    if (!champ) return;
+
+    bouton.addEventListener('click', () => {
+      const montre = champ.type === 'password';
+      champ.type = montre ? 'text' : 'password';
+      bouton.querySelector('i').className = montre ? 'bi bi-eye-slash' : 'bi bi-eye';
+      bouton.setAttribute('aria-label', montre ? 'Masquer le mot de passe' : 'Afficher le mot de passe');
+    });
+  });
+}
+
 // Retire endikatif la ak espas yo pou yon nimewo ki soti nan baz la ka
 // parèt nan chan an kòm 8 chif tou senp.
 function telephoneLocal(valeur) {
@@ -159,4 +174,5 @@ document.addEventListener('DOMContentLoaded', () => {
   mettreAJourNavbar();
   initialiserMenuMobile();
   initialiserChampsTelephone();
+  initialiserBoutonsOeil();
 });

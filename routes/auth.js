@@ -7,6 +7,11 @@ const { normaliserTelephone } = require('../utils/telephone');
 
 const router = express.Router();
 
+// Longè minimòm modpas la. Nou mize sou longè olye règ konpozisyon (yon
+// majiskil, yon chif, yon senbòl) : rekòmandasyon aktyèl yo montre règ sa yo
+// pouse moun chwazi bagay tankou "Password1!" ki pa pi solid pou otan.
+const LONGUEUR_MIN_MOT_DE_PASSE = 8;
+
 // POST /api/auth/inscription — kreye yon nouvo kont kliyan
 router.post('/inscription', async (req, res, next) => {
   try {
@@ -14,6 +19,12 @@ router.post('/inscription', async (req, res, next) => {
 
     if (!nom || !prenom || !email || !mot_de_passe) {
       return res.status(400).json({ message: 'Les champs nom, prénom, courriel et mot de passe sont obligatoires.' });
+    }
+
+    if (String(mot_de_passe).length < LONGUEUR_MIN_MOT_DE_PASSE) {
+      return res.status(400).json({
+        message: `Le mot de passe doit contenir au moins ${LONGUEUR_MIN_MOT_DE_PASSE} caractères.`,
+      });
     }
 
     const tel = normaliserTelephone(telephone);

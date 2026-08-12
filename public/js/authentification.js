@@ -33,6 +33,14 @@ document.getElementById('form-inscription').addEventListener('submit', async (e)
   const form = e.target;
   const zone = document.getElementById('message-alerte');
 
+  // Kontwòl konfimasyon an fèt isit la sèlman : se yon gad kont fot frap,
+  // pa yon mezi sekirite. Longè minimòm nan menm verifye sou sèvè a tou.
+  if (form.mot_de_passe.value !== form.confirmation.value) {
+    afficherAlerte(zone, 'danger', 'Les deux mots de passe ne correspondent pas.');
+    form.confirmation.focus();
+    return;
+  }
+
   const { statut, donnees } = await api.post('/api/auth/inscription', {
     nom: form.nom.value.trim(),
     prenom: form.prenom.value.trim(),
