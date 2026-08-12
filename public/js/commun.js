@@ -124,6 +124,30 @@ function initialiserMenuMobile() {
   });
 }
 
+// -------------------- Chan telefòn --------------------
+// Endikatif +509 la deja parèt akote chan an, donk moun nan tape 8 chif
+// sèlman. Nou netwaye sa l tape a lamenm pou lèt ak siy pa antre ditou.
+function initialiserChampsTelephone() {
+  document.querySelectorAll('input[name="telephone"]').forEach((champ) => {
+    champ.addEventListener('input', () => {
+      const propre = champ.value.replace(/\D/g, '').slice(0, 8);
+      if (champ.value !== propre) {
+        champ.value = propre;
+      }
+    });
+  });
+}
+
+// Retire endikatif la ak espas yo pou yon nimewo ki soti nan baz la ka
+// parèt nan chan an kòm 8 chif tou senp.
+function telephoneLocal(valeur) {
+  const chiffres = String(valeur || '').replace(/\D/g, '');
+  if (chiffres.length === 11 && chiffres.startsWith('509')) {
+    return chiffres.slice(3);
+  }
+  return chiffres.slice(-8);
+}
+
 // Fòmate yon montan an dola
 function formaterPrix(montant) {
   return Number(montant).toLocaleString('fr-FR', { minimumFractionDigits: 2 }) + ' $';
@@ -134,4 +158,5 @@ document.addEventListener('DOMContentLoaded', () => {
   initialiserTheme();
   mettreAJourNavbar();
   initialiserMenuMobile();
+  initialiserChampsTelephone();
 });

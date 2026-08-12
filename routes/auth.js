@@ -3,6 +3,7 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const db = require('../config/db');
 const { estConnecte } = require('../middleware/auth');
+const { normaliserTelephone } = require('../utils/telephone');
 
 const router = express.Router();
 
@@ -13,6 +14,11 @@ router.post('/inscription', async (req, res, next) => {
 
     if (!nom || !prenom || !email || !mot_de_passe) {
       return res.status(400).json({ message: 'Les champs nom, prénom, courriel et mot de passe sont obligatoires.' });
+    }
+
+    const tel = normaliserTelephone(telephone);
+    if (!tel.ok) {
+      return res.status(400).json({ message: tel.message });
     }
 
     // Verifye si imèl la deja itilize
@@ -29,7 +35,7 @@ router.post('/inscription', async (req, res, next) => {
       `INSERT INTO utilisateur (nom, prenom, email, mot_de_passe, telephone, adresse, role)
        VALUES ($1, $2, $3, $4, $5, $6, 'client')
        RETURNING id_utilisateur, nom, prenom, email, role`,
-      [nom, prenom, email, hash, telephone || null, adresse || null]
+      [nom, prenom, email, hash, tel.valeur, adresse || null]
     );
     const utilisateur = resUser.rows[0];
 
@@ -128,10 +134,15 @@ router.put('/profil', estConnecte, async (req, res, next) => {
     const id = req.session.utilisateur.id;
     const { nom, prenom, telephone, adresse, entreprise, ville, pays } = req.body;
 
+    const tel = normaliserTelephone(telephone);
+    if (!tel.ok) {
+      return res.status(400).json({ message: tel.message });
+    }
+
     await db.query(
       `UPDATE utilisateur SET nom = COALESCE($1, nom), prenom = COALESCE($2, prenom),
               telephone = $3, adresse = $4 WHERE id_utilisateur = $5`,
-      [nom, prenom, telephone || null, adresse || null, id]
+      [nom, prenom, tel.valeur, adresse || null, id]
     );
 
     await db.query(

@@ -88,7 +88,8 @@ async function chargerProfil() {
   const form = document.getElementById('form-profil');
   form.nom.value = profil.nom || '';
   form.prenom.value = profil.prenom || '';
-  form.telephone.value = profil.telephone || '';
+  // Baz la sere "+509 XXXX XXXX", men chan an montre 8 chif sèlman
+  form.telephone.value = telephoneLocal(profil.telephone);
   form.adresse.value = profil.adresse || '';
   form.entreprise.value = profil.entreprise || '';
   form.ville.value = profil.ville || '';

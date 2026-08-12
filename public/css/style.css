@@ -709,6 +709,13 @@ body.avec-baro .footer {
   color: var(--couleur-accent);
 }
 
+/* Endikatif +509 la ak ikòn rechèch la sou paj Tarifs */
+[data-theme='dark'] .input-group-text {
+  background-color: var(--couleur-surface-douce);
+  border-color: var(--couleur-bordure);
+  color: var(--couleur-texte);
+}
+
 [data-theme='dark'] .dropdown-menu {
   background-color: var(--couleur-surface);
   border-color: var(--couleur-bordure);
