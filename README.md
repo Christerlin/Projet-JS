@@ -22,6 +22,7 @@ les clients, les services et les paiements en ligne.
 - Inscription, connexion, déconnexion et gestion de profil.
 - Mots de passe hachés avec bcrypt, minimum 8 caractères vérifié côté serveur.
 - Sélection de plusieurs services et création de commandes.
+- Espace client : consultation des services achetés et historique des paiements.
 - Paiement en ligne sécurisé avec Stripe.
 - Formulaire de contact enregistré dans la base de données.
 - Panneau d'administration : gestion des services, utilisateurs, paiements et messages.

@@ -80,7 +80,8 @@ router.get('/', estConnecte, async (req, res, next) => {
     }
     const resultat = await db.query(
       `SELECT c.id_commande, c.date_commande, c.montant_total, c.statut,
-              p.statut AS statut_paiement, p.date_paiement
+              p.statut AS statut_paiement, p.date_paiement,
+              p.montant AS montant_paiement, p.mode_paiement, p.transaction_id
        FROM commande c
        LEFT JOIN paiement p ON p.id_commande = c.id_commande
        WHERE c.id_client = $1
